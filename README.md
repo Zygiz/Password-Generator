@@ -16,3 +16,18 @@ Entropy is calculated using the formula:
 where **L** is password length and **R** is the size of the character pool.
 
 ## Screenshots
+
+
+## How To Run
+1. Ensure you have the .NET SDK installed.
+2. Clone the repository:
+   ```bash
+   git clone [https://github.com/TAVO_VARDAS/secure-password-generator.git](https://github.com/TAVO_VARDAS/secure-password-generator.git)
+
+dotnet run
+
+
+## Lessons Learned
+- Understanding the critical difference between PRNG (`System.Random`) and CSPRNG (`RandomNumberGenerator`).
+- Implementing mathematical concepts like Shannon Entropy into functional code.
+- Basic input validation to prevent application crashes from invalid user inputs.
