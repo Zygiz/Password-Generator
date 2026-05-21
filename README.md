@@ -1,33 +1,77 @@
-# Secure Password Generator
+# Secure Password Generator (C#)
 
-A lightweight, cryptographically secure command-line password generator built in C#. This project was created to practice secure coding fundamentals, memory efficiency, and password strength analysis.
+## 🎯 Project Objective
+To create a command-line interface (CLI) tool that generates secure, customizable passwords. Unlike basic tutorial password generators, this project focuses on real cybersecurity standards: memory efficiency, cryptographically secure pseudo-random number generation (CSPRNG), and mathematical password strength (entropy) calculation.
 
-## Features
-- **Cryptographically Secure:** Uses `.NET` `RandomNumberGenerator` (CSPRNG) instead of standard pseudo-random generators.
-- **Customizable Criteria:** Toggle uppercase letters, lowercase letters, numbers, and special characters.
-- **Strength Evaluation:** Calculates and displays password entropy (in bits) to measure mathematical strength.
-- **Memory Optimized:** Utilizes `StringBuilder` for efficient string manipulation.
+## 🛠 Technology & Skills Matrix
 
-## How It Works
-Unlike standard `System.Random`, which is predictable and unsafe for security purposes, this tool leverages OS-level entropy to generate truly unpredictable sequences, making it resistant to pre-computation or seed-guessing attacks.
+| Stage | Core Technology / Class | Skill Developed |
+| :--- | :--- | :--- |
+| **Stage 1** | Basic C# Syntax | Console I/O, loops, basic logic |
+| **Stage 2** | `StringBuilder` | Efficient memory management, conditionals |
+| **Stage 3** | `System.Security.Cryptography` | CSPRNG, ensuring cryptographic security |
+| **Stage 4** | `Math.Log2` | Security theory (mathematical entropy) |
 
-Entropy is calculated using the formula:  
-*E = L * log2(R)*  
-where **L** is password length and **R** is the size of the character pool.
+---
 
-## Screenshots
+## 🗺️ Development Stages
 
+### Stage 1: Basic Generation (✅ Done)
+- **Goal:** Create the application skeleton and generate a basic random string of characters.
+- **Required Knowledge:** Variable declaration, `Console.ReadLine()`, `for` loops, `System.Random`.
+- **Tasks:**
+  - [x] Prompt the user to enter the desired password length.
+  - [x] Generate a random string from a basic alphabet array.
+  - [x] Output the result to the console.
+- **Validation Criteria:** Entering the number "10" outputs a random 10-character string.
+- **Common Mistakes:** Application crashes if the user enters a letter instead of a number for the length.
+- **Definition of Done:** Code compiles successfully and generates random text of the requested length.
 
-## How To Run
-1. Ensure you have the .NET SDK installed.
+---
+
+### Stage 2: Character Filter Management (Current Step)
+- **Goal:** Allow the user to select which character types to include and optimize how the string is built in memory.
+- **Required Knowledge:** `if/else` statements, string concatenation, `StringBuilder` class.
+- **Tasks:**
+  - [ ] Create 4 base strings: lowercase, uppercase, numbers, special characters.
+  - [ ] Prompt the user (Yes/No) to include each category.
+  - [ ] Combine the selected categories into a single "character pool" string based on user input.
+  - [ ] Update the generation logic to use `StringBuilder` instead of basic string concatenation (`+=`).
+- **Validation Criteria:** If only numbers are selected with a length of 5, the program must output exactly 5 digits (e.g., "54821").
+- **Common Mistakes:** Allowing all options to be rejected (if the user selects "No" for everything, the program tries to generate from an empty string and crashes).
+- **Definition of Done:** The user can interactively toggle character groups, and the application uses `StringBuilder` for output generation.
+
+---
+
+### Stage 3: Cryptographic Security (CSPRNG)
+- **Goal:** Replace the standard pseudo-random number generator with a cryptographically secure one, making the passwords resistant to prediction attacks.
+- **Required Knowledge:** Working with external .NET classes, `RandomNumberGenerator` from the `System.Security.Cryptography` namespace.
+- **Tasks:**
+  - [ ] Remove all code utilizing `new Random()`.
+  - [ ] Import the `System.Security.Cryptography` namespace.
+  - [ ] Use `RandomNumberGenerator.GetInt32(0, pool.Length)` to securely pull a random character from the pool.
+- **Validation Criteria:** The program works exactly like Stage 2, but utilizes CSPRNG under the hood.
+- **Common Mistakes:** Confusing the older `RandomNumberGenerator.Create()` method with the newer static `.GetInt32()` method (C# 10+ recommends the static approach).
+- **Definition of Done:** There are no traces of the `System.Random` class left in the codebase.
+
+---
+
+### Stage 4: Entropy (Strength) Calculation
+- **Goal:** Display the mathematical strength (in bits) of the generated password to the user.
+- **Required Knowledge:** Basic cybersecurity theory (Shannon Entropy), utilizing mathematical operations (`Math.Log2`).
+- **Tasks:**
+  - [ ] Calculate the length of the character "pool" (R).
+  - [ ] Given the password length (L), apply the formula: `Entropy = L * Math.Log2(R)`.
+  - [ ] Display the resulting entropy value below the generated password.
+- **Validation Criteria:** If the pool has 62 characters (letters + numbers) and the length is 12, the entropy should display as ~71 bits.
+- **Common Mistakes:** Mixing up the pool length (R) with the password length (L) in the formula.
+- **Definition of Done:** The mathematical strength in bits is displayed after every generated password.
+
+---
+
+## 🚀 How to Run the Project
+1. Ensure you have the [.NET SDK](https://dotnet.microsoft.com/download) installed.
 2. Clone the repository:
-   ```bash
-   git clone [https://github.com/TAVO_VARDAS/secure-password-generator.git](https://github.com/TAVO_VARDAS/secure-password-generator.git)
-
-dotnet run
-
-
-## Lessons Learned
-- Understanding the critical difference between PRNG (`System.Random`) and CSPRNG (`RandomNumberGenerator`).
-- Implementing mathematical concepts like Shannon Entropy into functional code.
-- Basic input validation to prevent application crashes from invalid user inputs.
+   
+```bash
+   git clone [https://github.com/YOUR_NAME/secure-password-generator.git](https://github.com/YOUR_NAME/secure-password-generator.git)
