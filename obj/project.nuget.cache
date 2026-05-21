@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "upVVwRuUK3WfvRgd3tof2i5Sd3xKb8ElsStP1y8Zw+7mZvCSwmcfE1sbqZ8lIw/7nBkxyKP6gyMPR3FLcPBaIQ==",
+  "success": true,
+  "projectFilePath": "/home/kali/PasswordGenerator/Password-Generator/Password-Generator.csproj",
+  "expectedPackageFiles": [
+    "/home/kali/.nuget/packages/microsoft.netcore.app.ref/6.0.8/microsoft.netcore.app.ref.6.0.8.nupkg.sha512",
+    "/home/kali/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.8/microsoft.aspnetcore.app.ref.6.0.8.nupkg.sha512",
+    "/home/kali/.nuget/packages/microsoft.netcore.app.host.linux-x64/6.0.8/microsoft.netcore.app.host.linux-x64.6.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}
