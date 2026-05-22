@@ -33,7 +33,7 @@ To create a command-line interface (CLI) tool that generates secure, customizabl
 - **Goal:** Allow the user to select which character types to include and optimize how the string is built in memory.
 - **Required Knowledge:** `if/else` statements, string concatenation, `StringBuilder` class.
 - **Tasks:**
-  - [ ] Create 4 base strings: lowercase, uppercase, numbers, special characters.
+  - [x] Create 4 base strings: lowercase, uppercase, numbers, special characters.
   - [ ] Prompt the user (Yes/No) to include each category.
   - [ ] Combine the selected categories into a single "character pool" string based on user input.
   - [ ] Update the generation logic to use `StringBuilder` instead of basic string concatenation (`+=`).
